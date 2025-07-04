@@ -4,6 +4,7 @@ import { Search, ShoppingCart, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from '@/components/ui/navigation-menu';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -24,7 +25,9 @@ const Header = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-blue-600">BookStore</h1>
+            <Link to="/">
+              <h1 className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">BookStore</h1>
+            </Link>
           </div>
           
           {/* Search Bar */}
@@ -73,16 +76,24 @@ const Header = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <a href="#" className="text-sm font-medium hover:text-blue-600">Bestsellers</a>
+                <Link to="/bestsellers" className="text-sm font-medium hover:text-blue-600 transition-colors">
+                  Bestsellers
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <a href="#" className="text-sm font-medium hover:text-blue-600">New Releases</a>
+                <Link to="/new-releases" className="text-sm font-medium hover:text-blue-600 transition-colors">
+                  New Releases
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <a href="#" className="text-sm font-medium hover:text-blue-600">Sale</a>
+                <Link to="/sale" className="text-sm font-medium hover:text-blue-600 transition-colors">
+                  Sale
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <a href="#" className="text-sm font-medium hover:text-blue-600">About</a>
+                <Link to="/about" className="text-sm font-medium hover:text-blue-600 transition-colors">
+                  About
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
