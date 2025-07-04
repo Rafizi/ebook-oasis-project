@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Star, ShoppingCart } from 'lucide-react';
@@ -12,6 +13,7 @@ interface BookCardProps {
   rating: number;
   image?: string;
   isOnSale?: boolean;
+  bookId?: string | number;
 }
 
 const BookCard = ({ 
@@ -21,32 +23,37 @@ const BookCard = ({
   originalPrice, 
   rating, 
   image, 
-  isOnSale = false 
+  isOnSale = false,
+  bookId = 1
 }: BookCardProps) => {
   return (
     <Card className="group hover:shadow-lg transition-shadow duration-300">
       <CardContent className="p-4">
-        {/* Book Cover */}
-        <div className="relative mb-4">
-          <div className="aspect-[3/4] bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
-            {image ? (
-              <img src={image} alt={title} className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-gray-400">Book Cover</span>
+        {/* Book Cover - Clickable */}
+        <Link to={`/book/${bookId}`} className="block">
+          <div className="relative mb-4">
+            <div className="aspect-[3/4] bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+              {image ? (
+                <img src={image} alt={title} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-gray-400">Book Cover</span>
+              )}
+            </div>
+            {isOnSale && (
+              <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold">
+                SALE
+              </div>
             )}
           </div>
-          {isOnSale && (
-            <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold">
-              SALE
-            </div>
-          )}
-        </div>
+        </Link>
         
         {/* Book Info */}
         <div className="space-y-2">
-          <h3 className="font-semibold text-sm line-clamp-2 group-hover:text-blue-600 transition-colors">
-            {title}
-          </h3>
+          <Link to={`/book/${bookId}`}>
+            <h3 className="font-semibold text-sm line-clamp-2 group-hover:text-blue-600 transition-colors cursor-pointer">
+              {title}
+            </h3>
+          </Link>
           <p className="text-gray-600 text-sm">{author}</p>
           
           {/* Rating */}

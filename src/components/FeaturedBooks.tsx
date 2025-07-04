@@ -5,6 +5,7 @@ import BookCard from './BookCard';
 const FeaturedBooks = () => {
   const featuredBooks = [
     {
+      bookId: 1,
       title: "The Great Adventure",
       author: "John Smith",
       price: 19.99,
@@ -13,18 +14,21 @@ const FeaturedBooks = () => {
       isOnSale: true
     },
     {
+      bookId: 2,
       title: "Mystery of the Lost City",
       author: "Sarah Johnson",
       price: 15.99,
       rating: 4.2
     },
     {
+      bookId: 3,
       title: "Science Fiction Chronicles",
       author: "Mike Wilson",
       price: 22.99,
       rating: 4.8
     },
     {
+      bookId: 4,
       title: "Romance in Paris",
       author: "Emily Brown",
       price: 12.99,
@@ -33,12 +37,14 @@ const FeaturedBooks = () => {
       isOnSale: true
     },
     {
+      bookId: 5,
       title: "History Unveiled",
       author: "David Miller",
       price: 18.99,
       rating: 4.6
     },
     {
+      bookId: 6,
       title: "Cooking Masterclass",
       author: "Chef Maria",
       price: 25.99,
